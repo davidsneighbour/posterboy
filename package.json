@@ -16,5 +16,11 @@
     "mock-fs": "5.2.0",
     "toml": "3.0.0",
     "ts-jest": "29.1.4"
+  },
+  "devDependencies": {
+    "@davidsneighbour/eslint-config": "^2024.3.13",
+    "@davidsneighbour/prettier-config": "^2024.3.13",
+    "@davidsneighbour/release-config": "^2024.3.13",
+    "@davidsneighbour/tools": "^2024.3.13"
   }
 }

@@ -6,7 +6,7 @@
     "userAgent": {
       "type": "string",
       "description": "User agent string to be used in requests",
-      "default": "kolitsch.dev/1.1"
+      "default": "posterboy/v0.0.1"
     },
     "sources": {
       "type": "array",
