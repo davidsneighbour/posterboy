@@ -1,5 +1,4 @@
 coverage
-package-lock.json
 cache
 node_modules
 changes.md
