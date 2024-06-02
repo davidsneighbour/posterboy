@@ -1,0 +1,12 @@
+davidsneighbour
+David's Neighbour
+[kK]ollitsch
+VSCode
+[Ff]rontmatter
+[Bb]oolean
+[Ss]hortcode
+[Ss]hortcodes
+Netlify
+[Nn]amespaced
+[Tt]eardown
+GoHugo

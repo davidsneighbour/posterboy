@@ -1,13 +1,9 @@
 {
   "name": "@davidsneighbour/posterboy",
-  "version": "0.0.1",
   "description": "A auto poster to social media accounts.",
-  "main": "index.js",
-  "scripts": {
-    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage"
-  },
-  "author": "Patrick Kollitsch <patrick@davids-neighbour.com>",
+  "version": "0.0.0",
   "license": "MIT",
+  "author": "Patrick Kollitsch <patrick@davids-neighbour.com>",
   "dependencies": {
     "@clack/prompts": "0.7.0",
     "@types/jest": "29.5.12",
@@ -18,9 +14,27 @@
     "ts-jest": "29.1.4"
   },
   "devDependencies": {
-    "@davidsneighbour/eslint-config": "^2024.3.13",
-    "@davidsneighbour/prettier-config": "^2024.3.13",
-    "@davidsneighbour/release-config": "^2024.3.13",
-    "@davidsneighbour/tools": "^2024.3.13"
+    "@davidsneighbour/eslint-config": "2024.3.16",
+    "@davidsneighbour/prettier-config": "2024.3.16",
+    "@davidsneighbour/release-config": "2024.3.16",
+    "@davidsneighbour/tools": "2024.3.16"
+  },
+  "scripts": {
+    "hooks:update": "simple-git-hooks",
+    "lint": "npm run lint:lockfiles & npm run lint:secrets & npm run lint:vale",
+    "lint:hook:commit": "lint-staged",
+    "lint:lockfiles": "lockfile-lint --path package-lock.json --type=npm --validate-https --allowed-hosts=npm --empty-hostname=false --validate-package-names --validate-checksum --validate-integrity",
+    "lint:secrets": "secretlint .",
+    "lint:vale": "vale --config='.github/vale/vale.ini' --no-exit --output='dnb.tmpl' README.md",
+    "lint:vale:update": "cd .github/vale && vale sync && cd ../..",
+    "release": "commit-and-tag-version -a -t \"v\" && ./bin/repo/release/postrelease",
+    "release:major": "commit-and-tag-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\"  && ./bin/repo/release/postrelease",
+    "release:minor": "commit-and-tag-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\"  && ./bin/repo/release/postrelease",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage"
+  },
+  "main": "index.js",
+  "simple-git-hooks": {
+    "pre-commit": "npm run lint:hook:commit",
+    "commit-msg": "npx commitlint -e \"$@\""
   }
 }
