@@ -1,0 +1,26 @@
+#:schema ./config.schema.json
+userAgent = "KOLLITSCH.dev*/1.1"
+
+[[sources]]
+slug = "kollitsch"
+type = "feed"
+url = "https://kollitsch.dev/rss.xml"
+name = "KOLLITSCH.dev*"
+
+[[sources]]
+slug = "hugomodules"
+type = "github"
+repo = "davidsneighbour/hugo-modules"
+name = "GoHugo Modules"
+
+[[targets]]
+slug = "discord"
+type = "discord"
+name = "Discord Update Channel"
+hook = ""
+
+[[targets]]
+slug = "mastodon"
+type = "mastodon"
+name = "Mastodon"
+username = ""

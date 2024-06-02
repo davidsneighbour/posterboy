@@ -1,0 +1,11 @@
+{
+  "verbose": false,
+  "testEnvironment": "node",
+  "transform": {},
+  "testMatch": [
+    "**/?(*.)+(spec|test).mjs"
+  ],
+  "collectCoverage": true,
+  "coverageDirectory": "coverage",
+  "coverageReporters": ["html", "text"]
+}
