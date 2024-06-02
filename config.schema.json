@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Configuration Schema",
+  "type": "object",
+  "properties": {
+    "userAgent": {
+      "type": "string",
+      "description": "User agent string to be used in requests",
+      "default": "KOLLITSCH.dev*/1.1"
+    },
+    "sources": {
+      "type": "array",
+      "description": "List of source configurations",
+      "items": {
+        "type": "object",
+        "oneOf": [
+          {
+            "properties": {
+              "slug": {
+                "type": "string",
+                "description": "Unique identifier for the source"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["feed"],
+                "description": "Type of the source"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL of the feed"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the source"
+              }
+            },
+            "required": ["slug", "type", "url", "name"],
+            "additionalProperties": false
+          },
+          {
+            "properties": {
+              "slug": {
+                "type": "string",
+                "description": "Unique identifier for the source"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["github"],
+                "description": "Type of the source"
+              },
+              "repo": {
+                "type": "string",
+                "description": "GitHub repository in the format 'owner/repo'"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the source"
+              }
+            },
+            "required": ["slug", "type", "repo", "name"],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "targets": {
+      "type": "array",
+      "description": "List of target configurations",
+      "items": {
+        "type": "object",
+        "oneOf": [
+          {
+            "properties": {
+              "slug": {
+                "type": "string",
+                "description": "Unique identifier for the target"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["discord"],
+                "description": "Type of the target"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the target"
+              },
+              "hook": {
+                "type": "string",
+                "description": "Webhook URL for Discord"
+              }
+            },
+            "required": ["slug", "type", "name", "hook"],
+            "additionalProperties": false
+          },
+          {
+            "properties": {
+              "slug": {
+                "type": "string",
+                "description": "Unique identifier for the target"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["mastodon"],
+                "description": "Type of the target"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the target"
+              },
+              "username": {
+                "type": "string",
+                "description": "Username for Mastodon"
+              }
+            },
+            "required": ["slug", "type", "name", "username"],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": ["userAgent", "sources", "targets"],
+  "additionalProperties": false
+}
