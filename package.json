@@ -16,7 +16,7 @@
     "@davidsneighbour/eslint-config": "2024.3.16",
     "@davidsneighbour/prettier-config": "2024.3.16",
     "@davidsneighbour/release-config": "2024.3.16",
-    "@davidsneighbour/tools": "2024.3.16"
+    "@davidsneighbour/tools": "2024.3.21"
   },
   "scripts": {
     "hooks:update": "simple-git-hooks",
