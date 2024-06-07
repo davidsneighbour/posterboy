@@ -13,7 +13,7 @@
     "stringify-package": "^1.0.1",
     "toml": "3.0.0",
     "ts-jest": "29.1.4",
-    "@davidsneighbour/eslint-config": "2024.3.16",
+    "@davidsneighbour/eslint-config": "2024.3.21",
     "@davidsneighbour/prettier-config": "2024.3.16",
     "@davidsneighbour/release-config": "2024.3.16",
     "@davidsneighbour/tools": "2024.3.16"
