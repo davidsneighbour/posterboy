@@ -9,7 +9,7 @@
     "@davidsneighbour/eslint-config": "2024.3.23",
     "@davidsneighbour/prettier-config": "2024.3.23",
     "@davidsneighbour/release-config": "2024.3.23",
-    "@davidsneighbour/tools": "2024.3.23",
+    "@davidsneighbour/tools": "2024.3.24",
     "@types/jest": "29.5.12",
     "consola": "3.2.3",
     "jest": "29.7.0",
