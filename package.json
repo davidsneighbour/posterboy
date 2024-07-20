@@ -8,7 +8,7 @@
     "@clack/prompts": "0.7.0",
     "@davidsneighbour/eslint-config": "2024.3.24",
     "@davidsneighbour/prettier-config": "2024.3.25",
-    "@davidsneighbour/release-config": "2024.3.23",
+    "@davidsneighbour/release-config": "2024.3.25",
     "@davidsneighbour/tools": "2024.3.24",
     "@types/jest": "29.5.12",
     "consola": "3.2.3",
