@@ -17,7 +17,7 @@
     "stringify-package": "^1.0.1",
     "toml": "3.0.0",
     "ts-jest": "29.2.3",
-    "xml2js": "^0.6.2"
+    "xml2js": "0.6.2"
   },
   "scripts": {
     "hooks:update": "simple-git-hooks",
@@ -30,7 +30,7 @@
     "release": "commit-and-tag-version -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/release/postrelease",
     "release:major": "commit-and-tag-version --release-as major -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/release/postrelease",
     "release:minor": "commit-and-tag-version --release-as minor -a -t \"v\" --releaseCommitMessageFormat \"chore(release): v{{currentTag}}\" && ./bin/repo/release/postrelease",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage"
+    "test": "node --experimental-vm-modules --disable-warning=ExperimentalWarning node_modules/jest/bin/jest.js --coverage"
   },
   "main": "index.js",
   "simple-git-hooks": {
