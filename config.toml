@@ -1,5 +1,5 @@
 #:schema ./config.schema.json
-userAgent = "KOLLITSCH.dev*/1.1"
+userAgent = "posterboy/0.0.1"
 
 [[sources]]
 slug = "kollitsch"
@@ -18,9 +18,19 @@ slug = "discord"
 type = "discord"
 name = "Discord Update Channel"
 hook = ""
+template = '''
+New post on {{ .source.name }}:
+{{ .title }}
+{{ .url }}
+'''
 
 [[targets]]
 slug = "mastodon"
 type = "mastodon"
 name = "Mastodon"
 username = ""
+template = '''
+New post on {{ .source.name }}:
+{{ .title }}
+{{ .url }}
+'''

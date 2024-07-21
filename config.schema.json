@@ -67,8 +67,7 @@
               "repo"
             ]
           }
-        ],
-        "additionalProperties": false
+        ]
       }
     },
     "targets": {
@@ -101,12 +100,17 @@
           "username": {
             "type": "string",
             "description": "Username for Mastodon"
+          },
+          "template": {
+            "type": "string",
+            "description": "Template for the message"
           }
         },
         "required": [
           "slug",
           "type",
-          "name"
+          "name",
+          "template"
         ],
         "oneOf": [
           {
@@ -129,8 +133,7 @@
               "username"
             ]
           }
-        ],
-        "additionalProperties": false
+        ]
       }
     }
   },
@@ -138,6 +141,5 @@
     "userAgent",
     "sources",
     "targets"
-  ],
-  "additionalProperties": false
+  ]
 }

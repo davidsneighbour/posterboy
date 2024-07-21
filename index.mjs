@@ -1,7 +1,7 @@
 // @see https://github.com/natemoo-re/clack/tree/main/packages/prompts#readme
 import *  as prompts from '@clack/prompts';
 import toml from 'toml';
-// see https://github.com/unjs/consola
+// @see https://github.com/unjs/consola
 import { consola } from "consola";
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,12 +9,9 @@ import { fileURLToPath } from 'node:url';
 import { transformConfig, getObjectBySlug } from './lib/helper.mjs';
 import pc from "picocolors"
 import { createFetchConfig } from './lib/autoposter.utils.mjs';
-// import { fetchLatestItem as fetchFromGitHub, generateGitHubApiUrl } from './sources/github/from.github.mjs';
-// import { fetchLatestItem as fetchFromRSS } from './sources/rss/from.rss.mjs';
-// import { sendMessage as sendToDiscord } from './targets/discord/utils.discord.mjs';
-// import { postToTelegramChannel } from './targets/telegram/utils.telegram.mjs';
+import notifyDiscord from './targets/discord/notify.discord.mjs';
 
-// read TOML config file
+// read TOML configuration
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const configPath = path.resolve(__dirname, 'config.toml');
 let config;
@@ -25,7 +22,6 @@ try {
   consola.error(`Error reading TOML config file: ${err}`);
   process.exit(0);
 }
-
 
 async function main() {
 
@@ -52,7 +48,6 @@ async function main() {
         consola.error(error.message);
       }
       sourceData = createFetchConfig(sourceData);
-      consola.log(sourceData);
     } else if (sourceData.type === 'rss') {
       ({ fetchLatestItem: fetchFunction } = await import('./sources/rss/from.rss.mjs'));
     } else {
@@ -66,29 +61,32 @@ async function main() {
     consola.error(`Error fetching items from source: ${error}`);
     process.exit(0);
   }
-  consola.log(latestItem);
-
 
   const targets = await prompts.multiselect({
     message: 'Select target:',
     options: transformConfig(config.targets),
     required: false,
   });
-  consola.log(targets);
 
-  // select item
-  // select target
-  // ask if some other text to add
-  // if so ask for the text
+  // act on selected targets
+  const validTargets = ['discord', 'mastodon'];
+  targets.forEach(target => {
+    if (!validTargets.includes(target)) {
+      consola.error(`Error: Target ${target} is not supported.`);
+    } else {
+      consola.success(`Processing target: ${target}`);
+      let targetData = getObjectBySlug(config.targets, target);
 
+      if (target === 'discord') {
+        consola.log('Posting to Discord...');
+        notifyDiscord();
+      } else if (target === 'mastodon') {
+        consola.log('Posting to Bluesky...');
+      }
 
-
-
-  // show preview
-
-  // post to network
-
-  // do caching
+      console.log(targetData);
+    }
+  });
 
   // post another one or exit
   const nextStep = await prompts.select({
