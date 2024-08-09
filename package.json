@@ -10,7 +10,7 @@
     "@davidsneighbour/markdownlint-config": "2024.3.25",
     "@davidsneighbour/prettier-config": "2024.3.25",
     "@davidsneighbour/release-config": "2024.3.25",
-    "@davidsneighbour/tools": "2024.3.25",
+    "@davidsneighbour/tools": "2024.3.27",
     "consola": "3.2.3",
     "stringify-package": "1.0.1",
     "toml": "3.0.0",
