@@ -6,7 +6,7 @@
   "author": "Patrick Kollitsch <patrick@davids-neighbour.com>",
   "dependencies": {
     "@clack/prompts": "0.7.0",
-    "@davidsneighbour/eslint-config": "2024.3.38",
+    "@davidsneighbour/eslint-config": "2024.3.45",
     "@davidsneighbour/markdownlint-config": "2024.3.38",
     "@davidsneighbour/prettier-config": "2024.3.38",
     "@davidsneighbour/release-config": "2024.3.38",
