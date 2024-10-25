@@ -9,7 +9,7 @@
     "@davidsneighbour/eslint-config": "2024.3.38",
     "@davidsneighbour/markdownlint-config": "2024.3.38",
     "@davidsneighbour/prettier-config": "2024.3.38",
-    "@davidsneighbour/release-config": "2024.3.38",
+    "@davidsneighbour/release-config": "2024.4.6",
     "@davidsneighbour/tools": "2024.3.38",
     "consola": "3.2.3",
     "stringify-package": "1.0.1",
