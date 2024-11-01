@@ -7,7 +7,7 @@
   "dependencies": {
     "@clack/prompts": "0.7.0",
     "@davidsneighbour/eslint-config": "2024.3.38",
-    "@davidsneighbour/markdownlint-config": "2024.3.38",
+    "@davidsneighbour/markdownlint-config": "2024.4.7",
     "@davidsneighbour/prettier-config": "2024.3.38",
     "@davidsneighbour/release-config": "2024.3.38",
     "@davidsneighbour/tools": "2024.3.38",
