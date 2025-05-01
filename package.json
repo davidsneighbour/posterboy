@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "Patrick Kollitsch <patrick@davids-neighbour.com>",
   "dependencies": {
-    "@clack/prompts": "0.10.0",
+    "@clack/prompts": "0.10.1",
     "@davidsneighbour/eslint-config": "2025.1.1",
     "@davidsneighbour/markdownlint-config": "2025.1.1",
     "@davidsneighbour/prettier-config": "2025.1.1",
